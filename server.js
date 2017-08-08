@@ -28,9 +28,9 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // set db connection instance
-var connection = require('config/connection.js');
+var connection = require('./config/connection.js');
 // set instance of orm and db connection
-var orm = require('config/orm.js');
+var orm = require('./config/orm.js');
 
 // get info on all burgers from db
 app.get("/", function(req, res) {
