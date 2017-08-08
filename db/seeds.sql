@@ -1,5 +1,4 @@
-INSERT INTO burgers('burger_name')
-VALUES('taco burder'),
-      ('philly burger'),
-      ('double bacon cheese burger'),
-      ('jalapeno swiss bacon cheeseburger');
+INSERT INTO burgers (burger_name, date) VALUES('Taco Burger', now());
+INSERT INTO burgers (burger_name, date) VALUES('Philly Burger', now());
+INSERT INTO burgers (burger_name, date) VALUES('Double Bacon Cheeseburger', now());
+INSERT INTO burgers (burger_name, date) VALUES('Jalapeno Cheeseburger', now());

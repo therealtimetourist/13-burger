@@ -1,3 +1,54 @@
 
-{{{body}}}
-<button id="nom">SUBMIT</button>
+
+<div class="container">
+	<div class="jumbotron">
+    	<h1>Eat-Da-Burger!</h1> 
+	</div>
+
+	<div class ="row col-sm-12">
+		<section class="col-sm-6 liner text-center">
+			<h2>Ordered</h2>
+
+			{{#each burgers}}
+				<div class="row col-sm-6">
+			    	{{this.burger_name}}
+			    </div>
+			    <div class="row col-sm-6">	
+			    	<form action="/{{this.id}}?_method=DELETE" method="POST">
+			        	<button type="submit">Delete movie!</button>
+			      	</form>
+			    </div>
+			{{/each}}
+		</section>
+		<section class="col-sm-6 text-center">
+			<h2>Eaten</h2>
+		</section>
+	</div>
+	
+	<div class="row col-sm-12">
+		<section class="col-sm-12 liner-top text-center">
+			<h2>May I Take Your Order?</h2>
+
+			<form method="POST" action="/">
+				<fieldset class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+					<div class="input-group">
+						<span id="addon_burger" class="input-group-addon">
+							Burger Name
+						</span>
+						<input type="text" class="form-control" id="burger" name="burger" placeholder="Burger Name">
+					</div>
+				</fieldset>
+				<button class="btn btn-primary">
+					Submit Validated Form
+				</button>
+			</form>
+
+		</section>
+	</div>
+	
+	<div class="row col-sm-12">
+		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+			
+		</div>
+	</div>
+</div>

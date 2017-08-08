@@ -1,7 +1,7 @@
-var dbConn = require('./connection.js');
-module.exports = {
+var connection = require('./connection.js');
+//module.exports = {
   // ORM database views
-  selectAll();
-  insertOne();
-  updateOne();
-};
+  //selectAll();
+  //insertOne();
+  //updateOne();
+//};
