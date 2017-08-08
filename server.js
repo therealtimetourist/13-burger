@@ -9,7 +9,7 @@ var methodOverride = require("method-override");
 var app  = express();
 
 // set port
-var port = process.env.PORT || 3002;
+var port = process.env.port || 3002;
 
 // serve static content from app's public directory
 app.use(express.static("public"));
@@ -28,9 +28,9 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // set db connection instance
-var connection = require('./config/connection.js');
+var connection = require('config/connection.js');
 // set instance of orm and db connection
-var orm = require('./config/orm.js');
+var orm = require('config/orm.js');
 
 // get info on all burgers from db
 app.get("/", function(req, res) {
