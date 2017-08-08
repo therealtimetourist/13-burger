@@ -1,1 +1,4 @@
-var orm = require('../config/connection.js');
+var orm = require('../config/orm.js');
+
+
+module.export = orm;

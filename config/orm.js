@@ -5,3 +5,4 @@ var connection = require('./connection.js');
   //insertOne();
   //updateOne();
 //};
+module.exports = orm;
