@@ -1,16 +1,9 @@
 // set instance of mySQL package
 var mysql = require("mysql");
-// ser db connection
-// var connection = mysql.createConnection({
-//   host: "localhost",
-//   user: "burgers_db_user",
-//   password: "toorregrub",
-//   database: "burgers_db"
-// });
 
 if(process.env.JAWSDB_URL){
 	connection = mysql.createConnection(process.env.JAWSDB_URL)
-}else{
+} else{
 	connection = mysql.createConnection({
 		host: "localhost",
   		user: "burgers_db_user",
