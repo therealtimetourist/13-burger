@@ -1,54 +1,56 @@
+<h1>Cats!</h1>
 
+<h2>Cats that are not sleepy!</h2>
 
-<div class="container">
-	<div class="jumbotron">
-    	<h1>Eat-Da-Burger!</h1> 
-	</div>
+<ul>
+  {{#each cats}}
+    {{#unless this.sleepy}}
+      <li>
+        {{this.name}}
 
-	<div class ="row col-sm-12">
-		<section class="col-sm-6 liner text-center">
-			<h2>Ordered</h2>
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="sleepy" value="true">
+          <button type="submit">SLEEP TIME!</button>
+        </form>
 
-			{{#each burgers}}
-				<div class="row col-sm-6">
-			    	{{this.burger_name}}
-			    </div>
-			    <div class="row col-sm-6">	
-			    	<form action="/{{this.id}}?_method=DELETE" method="POST">
-			        	<button type="submit">Delete movie!</button>
-			      	</form>
-			    </div>
-			{{/each}}
-		</section>
-		<section class="col-sm-6 text-center">
-			<h2>Eaten</h2>
-		</section>
-	</div>
-	
-	<div class="row col-sm-12">
-		<section class="col-sm-12 liner-top text-center">
-			<h2>May I Take Your Order?</h2>
+        {{> cats/delete-cat}}
+      </li>
+    {{/unless}}
+  {{/each}}
+</ul>
 
-			<form method="POST" action="/">
-				<fieldset class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-					<div class="input-group">
-						<span id="addon_burger" class="input-group-addon">
-							Burger Name
-						</span>
-						<input type="text" class="form-control" id="burger" name="burger" placeholder="Burger Name">
-					</div>
-				</fieldset>
-				<button class="btn btn-primary">
-					Submit Validated Form
-				</button>
-			</form>
+<h2>Cats that are sleepy!</h2>
 
-		</section>
-	</div>
-	
-	<div class="row col-sm-12">
-		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-			
-		</div>
-	</div>
-</div>
+<ul>
+  {{#each cats}}
+    {{#if this.sleepy}}
+      <li>
+        {{this.name}}
+
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="sleepy" value="false">
+          <button type="submit">WAKE UP!</button>
+        </form>
+
+        {{> cats/delete-cat}}
+      </li>
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a Cat</h2>
+<form class="create-update-form" action="/" method="POST">
+
+  <div class="form-group">
+    <label for="ca">Cat Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="slee">Sleepy?</label><br>
+    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
+    <input type="radio" name="sleepy" value="0"> Awake
+  </div>
+
+  <button type="submit">Add Cat</button>
+</form>
