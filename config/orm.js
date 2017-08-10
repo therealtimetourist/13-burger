@@ -20,11 +20,10 @@ function objToSql(ob) {
       arr.push(key + "=" + ob[key]);
     }
   }
-
   return arr.toString();
 }
 
-// Object for all our SQL statement functions.
+// SQL statement functions object
 var orm = {
   all: function(tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
