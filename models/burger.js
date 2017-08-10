@@ -1,4 +1,4 @@
-// Import ORM/create functions to interact with db
+// import ORM/create functions to interact with db
 var orm = require("../config/orm.js");
 //object with methods to pass off info to premade queries
 var burger = {
@@ -7,7 +7,7 @@ var burger = {
       cb(res);
     });
   },
-  // The variables cols and vals are arrays.
+  // The variables cols and vals are arrays
   create: function(cols, vals, cb) {
     orm.create("burgers", cols, vals, function(res) {
       cb(res);
